@@ -1,1 +1,3 @@
 # phase-mismatch-calculator
+## Objetivo
+O código apresenta os pontos para determinado parâmetro escolhido pelo usuário em que além de termos valores coerentes de soma e subtração de frequências, temos também os valores de phase-mismatch para uma determinada tolerância. De acordo com os valores obtidos e essa tolerância, definida a partir do período de poling mínimo, o programa informa o valor de phase mismatch e o período de poling necessário para o regime de quasi-phase match.
