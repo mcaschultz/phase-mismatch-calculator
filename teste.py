@@ -1,12 +1,11 @@
 import utils
 
-path = r"data\etch_h900nm_b1500nm_3neff.txt"
+files_paths = [r"data/etch_h600nm_3_b1500nm.txt", r"data\etch_h600nm_4_b1500nm.txt"]
 
-x, beta = utils.read_data_txt(path)
-# Frequencia por calculo, se aplica a todos os arquivos, sem tamanho maximo, em nanometros, valores inteiros
 freq = [780,787,970,1550,1570,1600,2592]
+min_poling = 3.7e-6
+sweep_points = 42
 
-calc = utils.Calcs(freq,3)
-print(calc.frequency_modes)
-print("\n")
-print(calc.sum_frequencys)
+bases, betas = utils.files_handling.read_data_txt(files_paths)
+
+calc = utils.Calcs(bases,betas,freq,min_poling,sweep_points, len(files_paths))

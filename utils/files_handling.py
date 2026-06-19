@@ -1,10 +1,11 @@
-def read_data_txt(path : str):
-    with open(path, 'r') as data:
-        geometric_param = []
-        propagation_const = []
-        for line in data:
-            if line.startswith("%") != True:
-                column = line.split()
-                geometric_param.append(float(column[0]))
-                propagation_const.append(float(column[1]))
-    return geometric_param, propagation_const
+import numpy as np
+
+def read_data_txt(files_paths):
+    bases = []
+    betas = []
+
+    for idx, file_path in enumerate(files_paths):
+        col1, col2 = np.genfromtxt(file_path, comments="%", usecols=(0,1), unpack=True, skip_header=1)
+        bases.append(col1 * 1000000000) 
+        betas.append(col2)
+    return bases, betas
